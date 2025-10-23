@@ -7,7 +7,7 @@ function fetchWeatherAlerts(state) {
     fetch(`${weatherApi}${state}`)
     .then(response =>  response.json())
     .then(data => displayAlerts(data))
-    .catch(errorObject => displayError(errorObject.message))
+    .catch(errorObject => displayError(errorObject.message))//display Error function 
 };
 
 function displayAlerts(data) {
@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchButton.addEventListener('click', () => {
         const stateCode = stateInput.value.trim().toUpperCase();
         clearInputs();
-        if (validateStateCode(stateCode)) {
+        //if (validateStateCode(stateCode)) {
             fetchWeatherAlerts(stateCode);
-        }
+        //}
     });
     stateInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
